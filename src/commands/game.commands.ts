@@ -13,10 +13,21 @@ class GameCommand implements BaseCommand {
 		console.info('Games ready!');
 	}
 
+	/**
+	 * @description Generates a random number and returns a template string with an image
+	 * @return {Promise<void>}
+	 */
+
 	@Command({ name: 'iq' })
-	async iq(_ctx: Context, msg: Message) {
+	async iq(_ctx: Context, msg: Message): Promise<void> {
 		const newMessage = new MessageUtils();
-		return newMessage.sendMessageToChannel(GameService.switchIq(), msg.channelId);
+		try {
+			newMessage.sendMessageToChannel(GameService.switchIq(msg), msg.channelId);
+			await msg.delete();
+		} catch (err) {
+			console.error(err.message);
+			throw new Error(err);
+		}
 	}
 }
 
