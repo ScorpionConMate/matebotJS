@@ -1,13 +1,12 @@
 import { Client as Context, Message } from 'discord.js';
-import { Command, Ready } from '../../decorators';
-import { MessageUtils } from '../../utils/message.utils';
-import { BaseCommand } from '../Base.command';
-import { switchIq } from './utils';
+import { Command, Ready } from '../decorators';
+import { MessageUtils } from '../utils/message.utils';
+import { BaseCommand } from './Base.command';
+import { GameService } from '../services/index';
 
 /**
  * @description Bot command games are created in this file
  */
-
 class GameCommand implements BaseCommand {
 	@Ready()
 	async ready() {
@@ -17,7 +16,7 @@ class GameCommand implements BaseCommand {
 	@Command({ name: 'iq' })
 	async iq(_ctx: Context, msg: Message) {
 		const newMessage = new MessageUtils();
-		return newMessage.sendMessageToChannel(switchIq(), msg.channelId);
+		return newMessage.sendMessageToChannel(GameService.switchIq(), msg.channelId);
 	}
 }
 

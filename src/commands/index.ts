@@ -1,4 +1,4 @@
-import gameCommands from './games/game.commands';
+import gameCommands from './game.commands';
 import reminderCommand from './reminder.command';
 
 export const Commands = [];
