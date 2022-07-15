@@ -22,7 +22,7 @@ class GameCommand implements BaseCommand {
 	async iq(_ctx: Context, msg: Message): Promise<void> {
 		const newMessage = new MessageUtils();
 		try {
-			newMessage.sendMessageToChannel(GameService.switchIq(msg), msg.channelId);
+			newMessage.sendMessageToChannel(GameService.getIq(msg), msg.channelId);
 			await msg.delete();
 		} catch (err) {
 			console.error(err.message);
