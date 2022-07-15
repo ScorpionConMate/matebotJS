@@ -8,7 +8,7 @@ import server from './server';
 client?.user?.setStatus('online');
 
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log('Bot is ready!');
 });
 
 // Start all commands
@@ -16,9 +16,8 @@ InitCommands();
 
 // Register of events with client
 Events.forEach((evt) => evt);
-
 // Login to Discord with your client's token
-client.login(DiscordConfig.Bot.TOKEN);
+client.login(DiscordConfig.Bot.TOKEN).catch(err => console.error(err));
 
 server.listen(DiscordConfig.Bot.PORT, () => {
 	console.log(`Server started on port ${DiscordConfig.Bot.PORT}`);

@@ -1,14 +1,15 @@
 import { Client as Context, Message } from 'discord.js';
 import { Command, Ready } from '../decorators';
 import * as chrono from 'chrono-node';
+import { BaseCommand } from './Base.command';
 
-class ReminderCommand {
+class ReminderCommand implements BaseCommand {
 	@Ready()
 	async ready(_ctx: Context) {
 		console.log('Remminder ready!');
 	}
 
-	@Command()
+	@Command({name: "reminder", prefix: "["})
 	async reminder(_ctx: Context, msg: Message) {
 		const strDatetime = msg.content.split(' ').slice(1).join(' ');
 		console.log(strDatetime);

@@ -7,14 +7,6 @@ export class CommandUtils {
 		this.message = message;
 	}
 
-	public startPrefix(command: BaseCommand): boolean {
-		return this.message.content.startsWith(<string>command.prefix);
-	}
-
-	public getCommand(command: BaseCommand): string {
-		return this.message.content.split(<string>command.prefix)[1].split(' ')[0];
-	}
-
 	public getArgs(): string[] {
 		return this.message.content.split(' ').splice(1);
 	}
