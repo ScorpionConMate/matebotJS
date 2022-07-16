@@ -9,8 +9,14 @@ import { defaultEmbedData } from '../config/message.config';
  * @description Bot command utils for currencies are created on this file
  */
 class DolarCommand implements BaseCommand {
+	/**
+	 * @description Help command to know about this module
+	 * @param {Context} _ctx
+	 * @param {Message} _msg
+	 * @return {Promise<void>}
+	 */
 	@Command({ name: 'dolar help', description: 'Muestra la lista de comandos del modulo' })
-	async help(_ctx: Context, _msg: Message) {
+	async help(_ctx: Context, _msg: Message): Promise<void> {
 		const commandList = [
 			{
 				name: 'help',
@@ -37,7 +43,7 @@ class DolarCommand implements BaseCommand {
 			],
 			...defaultEmbedData,
 		});
-
+		/** Send message to the channel */
 		await messageUtils.sendMessageToChannel(embed, _msg.channelId);
 	}
 
@@ -49,6 +55,8 @@ class DolarCommand implements BaseCommand {
 		console.log('Dolar  ready!');
 	}
 	/**
+	 * @param {Context} _ctx
+	 * @param {Message} msg
 	 * @description Returns a string with the average price of the ARS/USD pair
 	 * @return {Promise<void>}
 	 */
