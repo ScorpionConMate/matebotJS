@@ -29,18 +29,18 @@ export class RantCommand implements BaseCommand {
 			},
 		];
 		const messageUtils = new MessageUtils();
-		const embed2 = new MessageEmbed();
-		embed2.setTitle('Mensaje de ayuda');
-		embed2.setFields(...commandList.map(v => {
+		const embed = new MessageEmbed();
+		embed.setTitle('Mensaje de ayuda');
+		embed.setFields(...commandList.map(v => {
 			return {
 				name: v.command,
 				value: v.description,
 				inline: false,
 			};
 		}));
-		setDefaultEmbedFooter(embed2);
+		setDefaultEmbedFooter(embed);
 
-		await messageUtils.sendMessageToChannel(embed2, _msg.channelId);
+		await messageUtils.sendMessageToChannel(embed, _msg.channelId);
 	}
 
 	@Ready()
