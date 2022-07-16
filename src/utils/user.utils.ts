@@ -5,6 +5,11 @@ import { RolesUtils } from './roles.utils';
 import { GuildMember } from 'discord.js';
 
 export class UserUtils {
+
+	static getUserFromMessage(message: Message): User {
+		return message.author;
+	}
+
 	static getUserId(user: User): string {
 		return `<@!${user.id}>`;
 	}

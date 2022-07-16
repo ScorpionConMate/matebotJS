@@ -13,3 +13,4 @@ router.post('/message/embed', MessageController.sendEmbed);
 router.post('/message/user/:user', MessageController.sendMessage);
 
 export default router;
+
