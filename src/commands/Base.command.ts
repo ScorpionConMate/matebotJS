@@ -1,11 +1,6 @@
 import { Message, Client as Context } from 'discord.js';
-import { CommandResponse } from '../utils/command.utils';
 
-export class BaseCommand {
-	async ready(_ctx: Context) {
-		throw new Error('Method Ready isnt implemented.');
-	}
-}
+export class BaseCommand {}
 
 export type TCommand = {
 	message?: Message;
