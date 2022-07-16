@@ -67,7 +67,6 @@ class GameCommand implements BaseCommand {
 		const newMessage = new MessageUtils();
 		try {
 			newMessage.sendMessageToChannel(GameService.getIq(msg), msg.channelId);
-			await msg.delete();
 		} catch (err) {
 			console.error(err.message);
 			throw new Error(err);
