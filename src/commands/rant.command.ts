@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { Client as Context, Message } from 'discord.js';
 import { Command, Ready } from '../decorators';
 import { CommandExecute } from '../decorators/command.decorator';
@@ -11,10 +10,6 @@ import { defaultEmbedData } from '../config/message.config';
 export class RantCommand implements BaseCommand {
 
 	@Command({ name: 'rant help', description: 'Muestra la lista de comandos del modulo' })
-	@Reflect.metadata('command', {
-		name: 'rant help',
-		description: 'Muestra la lista de comandos del modulo',
-	})
 	async help(_ctx: Context, _msg: Message) {
 		const commandList = [
 			{

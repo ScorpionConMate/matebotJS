@@ -27,7 +27,5 @@ export function Ready() {
 		descriptor.value = function(...args: unknown[]) {
 			return originalMethod.apply(this, args);
 		};
-
-		Reflect.defineMetadata('ready:name', propertyKey, target, propertyKey);
 	};
 }
