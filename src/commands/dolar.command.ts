@@ -21,7 +21,7 @@ class DolarCommand implements BaseCommand {
 			{
 				name: 'dolarblue',
 				description: 'Trae el valor del dolar blue, tomado de bluelytics',
-				command: 'rant lcdtmAb',
+				command: 'dolarblue',
 			},
 		];
 		const messageUtils = new MessageUtils();
