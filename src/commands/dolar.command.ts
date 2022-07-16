@@ -3,7 +3,6 @@ import { Command, Ready } from '../decorators';
 import { MessageUtils } from '../utils/message.utils';
 import { BaseCommand } from './Base.command';
 import { DolarService } from '../services/index';
-import { help } from 'yargs';
 import { defaultEmbedData } from '../config/message.config';
 
 /**
@@ -54,7 +53,7 @@ class DolarCommand implements BaseCommand {
 	 * @return {Promise<void>}
 	 */
 	@Command({ name: 'dolarblue' })
-	async iq(_ctx: Context, msg: Message): Promise<void> {
+	async dolarblue(_ctx: Context, msg: Message): Promise<void> {
 		const newMessage = new MessageUtils();
 		const dolarAVG = await DolarService.getData();
 		/** Send message to the channel */
