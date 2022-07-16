@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "etsc",
-    "prestart": "npm run build",
     "start": "node .",
     "dev": "nodemon",
     "clearDistDirectory": "rimraf dist",

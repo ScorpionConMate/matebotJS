@@ -10,9 +10,10 @@ export interface MessageEmbedCustom {
 	URL?: string;
 	mentions?: string[];
 	channel: string;
+	fields: { name: string; value: string, inline: boolean }[];
 }
 
-export type MessageEmbedUser = Partial<MessageEmbedCustom> & { isEmbed: boolean; message: string };
+export type MessageEmbedUser = Partial<MessageEmbedCustom> & { isEmbed?: boolean; message?: string };
 
 export type ColorResolvable =
 	| 'DEFAULT'

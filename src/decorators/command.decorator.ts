@@ -2,19 +2,41 @@
 import { DiscordConfig } from '../config/discord.config';
 
 interface CommandArgs {
+	/**
+	 * Command name
+	 * @type {string}
+	 * @memberof CommandArgs
+	 * @example 'reminder list'
+	 */
 	name?: string;
+	/**
+	 * Custom prefix for command
+	 * @type {string}
+	 * @memberof CommandArgs
+	 * @example '!'
+	 * @default '>'
+	 */
 	prefix?: string;
+	/**
+	 * Command description
+	 * @type {string}
+	 * @memberof CommandArgs
+	 * @example 'List reminders'
+	 * @default ''
+	 */
+	description?: string;
 }
 
 export interface CommandData {
 	prefix: string;
 	name: string;
+	description: string;
 	method: Function;
 }
 
 export const CommandExecute = new Map();
 export const PrefixStore = new Set();
-export function Command({ name = '', prefix = DiscordConfig.Bot.PREFIX }: CommandArgs = {}) {
+export function Command({ name = '', prefix = DiscordConfig.Bot.PREFIX, description = '' }: CommandArgs = {}) {
 	/**
 	 * @param {Object} target - The class Object
 	 * @param {string} propertyKey - The name method
@@ -27,8 +49,9 @@ export function Command({ name = '', prefix = DiscordConfig.Bot.PREFIX }: Comman
 			name = propertyKey;
 		}
 		const commandData: CommandData = {
-			prefix: prefix,
-			name: name,
+			prefix,
+			name,
+			description,
 			method: originalMethod.bind(target),
 		};
 
