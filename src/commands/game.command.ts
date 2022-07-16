@@ -21,7 +21,7 @@ class GameCommand implements BaseCommand {
 			{
 				name: 'help',
 				description: 'Muestra la lista de comandos del modulo',
-				command: 'dolar help',
+				command: 'game help',
 			},
 			{
 				name: 'iq',
