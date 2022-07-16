@@ -45,7 +45,6 @@ class DolarCommand implements BaseCommand {
 	/**
 	 * @description When the bot is ready do something
 	 */
-
 	@Ready()
 	async ready(_ctx: Context) {
 		console.log('Dolar  ready!');
@@ -54,15 +53,12 @@ class DolarCommand implements BaseCommand {
 	 * @description Returns a string with the average price of the ARS/USD pair
 	 * @return {Promise<void>}
 	 */
-
 	@Command({ name: 'dolarblue' })
 	async iq(_ctx: Context, msg: Message): Promise<void> {
 		const newMessage = new MessageUtils();
 		const dolarAVG = await DolarService.getData();
 		/** Send message to the channel */
 		newMessage.sendMessageToChannel(dolarAVG, msg.channelId);
-		/** Delete author Message */
-		await msg.delete();
 	}
 }
 
