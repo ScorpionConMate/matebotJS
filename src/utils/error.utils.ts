@@ -1,7 +1,23 @@
 import { MessageUtils } from './message.utils';
 type TCommandError = {
+	/**
+	 * Message to show
+	 */
 	message: string;
+	/**
+	 * Delete message true | false
+	 * @default false
+	 * @type {boolean}
+	 */
 	delete?: boolean;
+	/**
+	 * Delete message after seconds
+	 * @default 5
+	 * @type {number}
+	 * @example
+	 * deleteAfter: 5
+	 * deleteAfter: 10
+	 */
 	deleteAfter?: number;
 };
 export class CommandError extends Error {
@@ -25,6 +41,7 @@ export class CommandError extends Error {
 		this.delete = options.delete || true;
 		const deleteTime = (options.deleteAfter || 5) * 1000;
 		this.deleteAfter = deleteTime;
+		console.error(this);
 	}
 }
 

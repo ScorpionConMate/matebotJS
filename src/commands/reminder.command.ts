@@ -3,13 +3,16 @@ import { Command, Ready } from '../decorators';
 import * as chrono from 'chrono-node';
 import { BaseCommand } from './Base.command';
 
-class ReminderCommand implements BaseCommand {
+export class ReminderCommand implements BaseCommand {
+	help(_ctx: Context<boolean>, _msg: Message): Promise<void> {
+		throw new Error('Method not implemented.');
+	}
 	@Ready()
 	async ready(_ctx: Context) {
 		console.log('Remminder ready!');
 	}
 
-	@Command({name: "reminder", prefix: "["})
+	@Command({ name: "reminder", prefix: "[" })
 	async reminder(_ctx: Context, msg: Message) {
 		const strDatetime = msg.content.split(' ').slice(1).join(' ');
 		console.log(strDatetime);
@@ -31,5 +34,3 @@ class ReminderCommand implements BaseCommand {
 		}
 	}
 }
-
-export default new ReminderCommand();

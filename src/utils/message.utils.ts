@@ -8,9 +8,6 @@ export class MessageUtils {
 	constructor() {
 		this._client = client;
 	}
-	static getPrefix(message: Message, prefix: string) {
-		return message.content.startsWith(prefix);
-	}
 
 	static withBacktick(message: string, length: number) {
 		const start = message.padStart(message.length + length, '`');
@@ -51,7 +48,7 @@ export class MessageUtils {
 		if (options.thumbnail) embed.setThumbnail(options.thumbnail);
 		if (options.title) embed.setTitle(options.title);
 		if (options.URL) embed.setURL(options.URL);
-
+		if (options.fields) embed.addFields(options.fields);
 		embed.setTimestamp();
 
 		if (options.mentions) {

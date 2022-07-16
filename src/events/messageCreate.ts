@@ -21,10 +21,7 @@ export function messageCreate(): void {
 				command = CommandExecute.get(commandName.split(' ')[0]);
 			} else {
 				// Command not found!
-				message.channel
-					.send(`Command \`${commandName.split(' ')[0]}\` not found!`)
-					.then((m) => console.log(`${m.content}`))
-					.catch(console.error);
+				await message.channel.send(`Command \`${commandName.split(' ')[0]}\` not found!`);
 				return;
 			}
 
@@ -38,6 +35,7 @@ export function messageCreate(): void {
 					setTimeout(() => msg.delete(), error.deleteAfter);
 				});
 			}
+			await message.delete();
 			return;
 		}
 	});
